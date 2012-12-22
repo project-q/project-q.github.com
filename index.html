@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
-	<title>Project Q</title>
+	<meta name="viewport" content="width=device-width"/>
 	<meta name="author" content="Florian Bender"/>
+	<title>Project Q</title>
 	<style>
 		/* adapted: center position trick by http://css-tricks.com/centering-in-the-unknown/ */
 		html, body {
@@ -14,8 +15,9 @@
 			margin: 0;
 			text-align: center;
 			font-size: 0;
+			white-space: nowrap;
 		}
-		body:before {
+		body::before {
 			content: '';
 			display: inline-block;
 			height: 100%;
@@ -24,20 +26,93 @@
 		}
 		#main {
 			display: inline-block;
+			position: relative;
 			width: 50%;
-			max-width: 320px;
-			min-width: 160px;
-			margin: 1em;
+			max-width: 250px;
+			min-width: 225px;
+			margin: 0.3em;
+			padding-left: 5em;
 			vertical-align: middle;
-			font-size: 16px;
-			font-size: 1rem;
+			font-size: 24px;
+			font-size: 1.5rem;
+			/*text-align: left;*/
+		}
+		#main::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0.5em;
+			left: 0;
+			width: 3em;
+			height: 3em;
+			border: 0.5em solid silver;
+			-webkit-border-radius: 50%;
+			   -moz-border-radius: 50%;
+			    -ms-border-radius: 50%;
+			     -o-border-radius: 50%;
+			border-radius: 50%;
+		}
+		#main::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 1.5em;
+			left: 1.75em;
+			/*top: calc(0.5em + 2em / 2);
+			left: calc(3em / 2 - 0.5em / 2 + 0.5em);*/
+			width: 0.5em;
+			height: 2em;
+			-webkit-border-radius: 0.25em;
+			   -moz-border-radius: 0.25em;
+			    -ms-border-radius: 0.25em;
+			     -o-border-radius: 0.25em;
+			border-radius: 0.25em;
+			background: #000;
+			/*outline: 0.3em solid white;*/
+			-webkit-transform: rotate(135deg) translateY(-0.755em);
+			   -moz-transform: rotate(135deg) translateY(-0.755em); /* for oldies */
+			    -ms-transform: rotate(135deg) translateY(-0.755em);
+			     -o-transform: rotate(135deg) translateY(-0.755em);
+			transform: rotate(135deg) translateY(-0.755em);
+			-webkit-transition: transform 0.7s ease 0s;
+			   -moz-transition: transform 0.7s ease 0s; /* for oldies */
+			    -ms-transition: transform 0.7s ease 0s;
+			     -o-transition: transform 0.7s ease 0s;
+			transition: transform 0.7s ease 0s;
+		}
+		#main:hover::after {
+			-webkit-transform: rotate(315deg) translateY(0.755em);
+			   -moz-transform: rotate(315deg) translateY(0.755em); /* for oldies */
+			    -ms-transform: rotate(315deg) translateY(0.755em);
+			     -o-transform: rotate(315deg) translateY(0.755em);
+			transform: rotate(315deg) translateY(0.755em);
+		}
+		#main h1 {
+			font-size: 2em;
+		}
+		#main p {
+			margin-top: -1em;
+			font-size: 0.583em;
+			letter-spacing: 0.071em;
+			word-spacing: 0.071em;
+			text-transform: uppercase;
+			color: gray;
+			opacity: 0.33;
+			-webkit-transition: opacity 0.7s ease-in-out;
+			   -moz-transition: opacity 0.7s ease-in-out;
+			    -ms-transition: opacity 0.7s ease-in-out;
+			     -o-transition: opacity 0.7s ease-in-out;
+			transition: opacity 0.7s ease-in-out;
+		}
+		#main:hover p {
+			opacity: 0.999; /* prevent weird webkit glow bug */
 		}
 	</style>
 </head>
 <body>
-	<div id="main">
-		<h1>Project Q</h1>
+	<header id="main">
+		<h1 id="title">Project Q</h1>
 		<p>More to come.</p>
-	</div>
+	</header>
 </body>
 </html>
